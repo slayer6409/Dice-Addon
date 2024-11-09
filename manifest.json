@@ -1,0 +1,12 @@
+{
+  "name": "Emergency_Dice_Addon",
+  "version_number": "0.0.1",
+  "website_url": "https://github.com/slayer6409/Emergency-Dice-Updated",
+  "description": "An Addon",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2100",
+    "Evaisa-HookGenPatcher-0.0.5",
+    "Evaisa-LethalLib-0.15.1",
+    "slayer6409-Emergency_Dice_Updated-1.5.22"
+  ]
+}
