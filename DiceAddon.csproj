@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <AssemblyName>DiceAddon</AssemblyName>
+        <Description>Example Dice Addon</Description>
+        <Version>1.0.0</Version>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>latest</LangVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\..\MysteryDice\Regular\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\core\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="Assembly-CSharp">
+        <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="BepInEx">
+        <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\BepInEx\core\BepInEx.dll</HintPath>
+      </Reference>
+      <Reference Include="MysteryDice">
+        <HintPath>..\..\MysteryDice\Regular\MysteryDice.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine">
+        <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.AIModule">
+        <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.AIModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+        <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UI">
+        <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.UI.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="cd C:\Users\andre\Documents\NetcodePatcher&#xD;&#xA;&#xD;&#xA;NetcodePatcher.dll $(TargetDir) deps&#xD;&#xA;&#xD;&#xA;copy  &quot;C:\Users\andre\Desktop\DiceAddon\DiceAddon\bin\Debug\netstandard2.1\DiceAddon.dll&quot; &quot;C:\Users\andre\Desktop\MysteryDice\DiceAddon&quot;&#xD;&#xA;&#xD;&#xA;copy &quot;C:\Users\andre\Desktop\DiceAddon\DiceAddon\CHANGELOG.md&quot; &quot;C:\Users\andre\Desktop\MysteryDice\DiceAddon&quot;&#xD;&#xA;&#xD;&#xA;copy &quot;C:\Users\andre\Desktop\DiceAddon\DiceAddon\README.md&quot; &quot;C:\Users\andre\Desktop\MysteryDice\DiceAddon&quot;&#xD;&#xA;&#xD;&#xA;copy &quot;C:\Users\andre\Desktop\DiceAddon\DiceAddon\manifest.json&quot; &quot;C:\Users\andre\Desktop\MysteryDice\DiceAddon&quot;&#xD;&#xA;&#xD;&#xA;cd &quot;C:\Users\andre\Desktop\MysteryDice\&quot;&#xD;&#xA;&#xD;&#xA;call &quot;C:\Users\andre\Desktop\MysteryDice\Make Zip2.bat&quot;" />
+    </Target>
+</Project>
