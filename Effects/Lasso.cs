@@ -19,6 +19,8 @@ namespace DiceAddon.Effects
             if (MysteryDice.Patches.GetEnemies.Lasso == null)
                 return;
             MysteryDice.Misc.SpawnEnemyForced(MysteryDice.Patches.GetEnemies.Lasso, lassoSpawn, true);
+            // You can do any logic here, I just decided to use my spawn enemy forced since it was easy lol
+        
         }
     }
 }
